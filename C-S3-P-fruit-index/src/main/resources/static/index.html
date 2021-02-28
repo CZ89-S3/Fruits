@@ -1,0 +1,1011 @@
+<!doctype html>
+<html lang="zxx">
+    <head>
+        <!-- Required Meta Tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Bootstrap CSS --> 
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <!-- Animate Min CSS -->
+        <link rel="stylesheet" href="assets/css/animate.min.css">
+        <!-- Flaticon CSS -->
+        <link rel="stylesheet" href="assets/fonts/flaticon.css">
+        <!-- Boxicons CSS -->
+        <link rel="stylesheet" href="assets/css/boxicons.min.css">
+        <!-- Owl Carousel Min CSS --> 
+        <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
+        <!-- Nice Select Min CSS --> 
+        <link rel="stylesheet" href="assets/css/nice-select.min.css">
+        <!-- Meanmenu CSS -->
+        <link rel="stylesheet" href="assets/css/meanmenu.css">
+        <!-- Style CSS -->
+        <link rel="stylesheet" href="assets/css/style.css">
+        <!-- Responsive CSS -->
+        <link rel="stylesheet" href="assets/css/responsive.css">
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+        <title>Hilo - Organic Food Shop HTML Template</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    </head>
+    <body>
+        <!-- Pre Loader -->
+        <div class="preloader">
+            <div class="d-table">
+                <div class="d-table-cell">
+                    <img src="assets/images/preloder-img.png" alt="Images">
+                    <h2>Hilo</h2>
+                </div>
+            </div>
+        </div>
+        <!-- End Pre Loader -->
+
+        <!-- Top Header Start -->
+        <header class="top-header top-header-bg">
+            <div class="container" id="app0">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-4">
+                        <div class="top-header-social">
+                            <ul>
+                                <li>
+                                    <a href="#" target="_blank">
+                                        <i class='bx bxl-facebook'></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank">
+                                        <i class='bx bxl-twitter'></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank">
+                                        <i class='bx bxl-instagram'></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-9 col-md-8">
+                        <div class="top-header-right">
+                            <div class="top-header-right-item">
+                                <div class="language-list">
+                                    <div class="dropdown language-list-dropdown">
+                                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      	        语言
+                                            <i class='bx bx-chevron-down'></i>
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">
+                                                <img src="assets/images/language-flag/eng.png" alt="Images">
+                                                English
+                                            </a>
+                                            <a href="#">
+                                                <img src="assets/images/language-flag/arabic.png" alt="Images">
+                                                اللغة العربية
+                                            </a>
+                                            <a href="#">
+                                                <img src="assets/images/language-flag/germany.png" alt="Images">
+                                                Deutsch
+                                            </a>
+                                            <a href="#">
+                                                <img src="assets/images/language-flag/portugal.png" alt="Images">
+                                                Português
+                                            </a>
+                                            <a href="#">
+                                                <img src="assets/images/language-flag/china.png" alt="Images">
+                                                普通話
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="top-header-right-item">
+                                <ul class="top-header-list">
+                                    <li ><a href="per-infor.html">我的账号</a></li>
+                                    <li><a href="log-in.html" v-if=" user=='' ">登录</a>
+                                    <a v-else @click="logout()">退出</a>|
+						              <a v-if="user!=null">{{user.name}}</a>|
+						              
+						           </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+			var v2 = new Vue({
+				el:"#app0",
+				data:{
+					user:{}
+				},
+				created(){
+					axios.get("getLoginedUser").then(res=>{
+						this.user = res.data;
+					})
+				},
+				methods:{
+					logout(){
+						if(confirm("确定要退出登录?")){
+							axios.get("out.s").then(res=>{
+								//alert(res.data.msg);
+								location.href = "index.html";
+							});
+						}
+					}
+				}
+			})
+		
+		
+		</script>
+        </header>
+        <!-- Top Header End -->
+
+        <!-- Start Navbar Area -->
+        <div class="navbar-area">
+            <!-- Menu For Mobile Device -->
+            <div class="mobile-nav">
+                <a href="index.html" class="logo">
+                    <img src="assets/images/logos/logo-1.png" alt="Logo">
+                </a>
+            </div>
+
+            <!-- Menu For Desktop Device -->
+            <div class="main-nav">
+                <div class="container">
+                    <nav class="navbar navbar-expand-md navbar-light ">
+                        <a class="navbar-brand" href="index.html">
+                            <img src="assets/images/logos/logo-1.png" alt="Logo">
+                        </a>
+
+                        <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                            <ul class="navbar-nav m-auto">
+                                <li class="nav-item">
+                                    <a href="index.html" class="nav-link active">
+                                     	  主页 
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="shop-left-sidebar.html" class="nav-link">
+                                        	商品
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="olist.html" class="nav-link">
+                                        	我的订单
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="customer-services.html" class="nav-link">
+                                        	 客户服务
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                       	 其他 
+                                        <i class='bx bx-chevron-down'></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        
+                                        <li class="nav-item">
+                                            <a href="faq.html" class="nav-link">
+                                                	常见问题
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a href="team.html" class="nav-link">
+                                                	团队人物介绍
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a href="testimonials.html" class="nav-link">
+                                                	客户感言
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="coming-soon.html" class="nav-link">
+                                                	订阅我们
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <div id="userdd" class="nav-right-side">
+                                <ul class="nav-right-list">
+                                    <li><a href="index.html"><i class='bx bx-repost'></i></a></li>
+                                    <li><a href="wishlist.html"><i class='bx bx-heart'></i></a></li>
+                                    <li class="cart-span">
+                                        <a href="cart.html"><i class='bx bx-cart'></i></a>
+                                        <span>{{count}}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                               <script type="text/javascript">
+                                 var v8 = new Vue({
+                                	el:"#userdd",
+                                	data:{
+                                		count:'',
+                                	},created(){
+                                		
+                    						axios.get("getLoginedUser").then(res=>{
+                    							if( res.data && res.data.uid ){
+                    							axios.get("queryCartCount").then(res=>{
+                    								this.count = res.data;
+                    							});
+                    							}
+                    					});
+                                		
+                    				}
+                                })
+                                </script>
+                            
+                        </div>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="side-nav-responsive">
+                <div class="container">
+                    <div class="dot-menu">
+                        <div class="circle-inner">
+                            <div class="circle circle-one"></div>
+                            <div class="circle circle-two"></div>
+                            <div class="circle circle-three"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="container">
+                        <div class="side-nav-inner">
+                            <div class="side-nav justify-content-center align-items-center">
+                                <div class="side-nav-item">
+                                    <ul class="nav-right-list">
+                                        <li><a href="#"><i class='bx bx-repost'></i></a></li>
+                                        <li><a href="#"><i class='bx bx-heart'></i></a></li>
+                                        <li class="cart-span">
+                                            <a href="#"><i class='bx bx-cart'></i></a>
+                                            <span>1</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Navbar Area -->
+
+        <!-- Banner Area -->
+        <div class="banner-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="banner-item-content">
+                            <span>欢迎来到hilo商店</span>
+                            <h1>立即订购有机食品</h1>
+                            <p>希望我的商品能得到您的认可</p>
+                            <a href="shop-details.html#80" class="default-btn btn-bg-one">立即订购吧</a>
+                            <img src="assets/images/home-one/home-one-img1.png" alt="Banner Images">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-6">
+                                <div class="banner-item-side">
+                                    <h3>火热销售</h3>
+                                    <span>30%的优惠</span>
+                                    <a href="#newf" class="newslette-btn">新品上市</a>
+                                    <img src="assets/images/home-one/home-one-img2.png" alt="Banner Images">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-md-6">
+                                <div class="banner-item-side-2">
+                                    <h3>最大折扣</h3>
+                                    <span>降价70%</span>
+                                    <a href="shop-left-sidebar.html" class="shop-btn">销售中</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Banner Area End -->
+
+        <!-- New Arrival Area -->
+        <section class="new-arrival-area pt-100 pb-70">
+            <div id="newf" class="container">
+                <div class="section-title text-center">
+                    <h2>新品上市</h2>
+                </div>
+
+                <div class="row pt-45" id="app1" >
+                    <div class="col-lg-3 col-sm-6" v-for="f in fruits">
+                        <div class="new-arrival-item">
+                            <div class="arrival-img">
+                                <a :href="'shop-details.html#'+f.fid">
+                                    <img :src="f.fImage" alt="Product Images">
+                                </a>
+                                <div class="arrival-item-tag">
+                                    <h3>New</h3>
+                                </div>
+                                <ul class="arrival-item-action">
+
+                                    <li><a href="index.html"><i class='bx bx-repost'></i></a></li>
+                                    <li><a @click="addWish(f.fid)"><i class='bx bx-heart'></i></a></li>
+                                    <li><a @click="addCart(f.fid)"><i class='bx bx-cart'></i></a></li>
+                                </ul>
+                            </div>
+
+                            <div class="content">
+                                <h3><a :href="'shop-details.html#'+f.fid">{{f.fname}}</a></h3>
+                                <span>${{f.fprice}}/Kg <del>${{f.fnprice}}/Kg</del></span>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    </div>
+
+                   
+
+
+                    <script type="text/javascript">
+                      var vue=new Vue({
+                    	  el:"#app1",
+                    	  data:{
+                    		  fruits:[]
+                    	  },
+                    	  created(){
+                    		  axios.get("fruitsN").then(res=>{
+                    			  this.fruits=res.data;
+                    		  })
+                    	  },
+                    	  methods:{
+                    		  addWish(fid){
+                    			  axios.get("getLoginedUser").then(res=>{
+                    			  if( res.data && res.data.uid ){
+          							axios.get("wish.s?addWish&fid="+fid).then(res=>{
+          								alert(res.data.msg);
+          							})
+                    			  }else {
+      								alert("你尚未登录");
+    								location.href = "log-in.html";
+    							}
+                    		});
+          						
+          					},
+          					addCart(fid){
+                  			  axios.get("getLoginedUser").then(res=>{
+                  			  if( res.data && res.data.uid ){
+        							axios.get("cart.s?addCarts&fid="+fid).then(res=>{
+        								alert(res.data.msg);
+        								
+        							})
+                  			  }else {
+    								alert("你尚未登录");
+  								location.href = "log-in.html";
+  							}
+                  		});
+        						
+        					}
+          					
+                    	  }
+                    		  
+                    	  
+                      })
+                    
+                    
+                    </script>
+                    </div>
+                    </section>
+        <!-- New Arrival Area End -->
+
+       
+        <!-- Choose Area End -->
+
+        <!-- Trending Area -->
+        <div class="trending-area pt-100 pb-70">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>流行商品</h2>
+                    <p>
+                                                         追求潮流,永无止境
+                    </p>
+                </div>
+
+                <div class="row pt-45" id="app2">
+                    <div class="col-lg-9" >
+                        <div class="row">
+                            <div class="col-lg-4 col-sm-6" v-for="f in fruits">
+                                <div class="trending-item" >
+                                    <div class="trending-img">
+                                        <a href="shop-details.html">
+                                        <a :href="'shop-details.html#'+f.fid">
+                                            <img :src="f.fImage" alt="Product Images">
+                                        </a>
+                                        <div class="trending-item-tag">
+                                            <h3>Popular</h3>
+                                        </div>
+                                        <ul class="trending-item-action">
+                                            <li><a href="#"><i class='bx bx-repost'></i></a></li>
+                                            <li><a href="wishlist.html"><i class='bx bx-heart'></i></a></li>
+                                            <li><a href="cart.html"><i class='bx bx-cart'></i></a></li>
+                                        </ul>
+                                    </div>
+        
+                                    <div class="content">
+                                        <h3><a href="shop-details.html">{{f.fname}}</a></h3>
+                                        <div class="rating">
+                                            <i class='bx bxs-star'></i>
+                                            <i class='bx bxs-star'></i>
+                                            <i class='bx bxs-star'></i>
+                                            <i class='bx bxs-star'></i>
+                                            <i class='bx bxs-star'></i>
+                                        </div>
+                                        <span>${{f.fprice}}/Kg <del>${{f.fnprice}}/Kg</del></span>
+                                    </div>
+                                </div>
+                                </div>
+                             </div>
+                             
+                    </div>
+
+                    <div class="col-lg-3" v-for="g in gfruits">
+                        <div class="row" >
+                            <div class="col-lg-12 col-md-6" >
+                                <div class="trending-side-item">
+                                    <h3>{{g.fdesc}}</h3>
+                                    <h3><a :href="'shop-details.html#'+g.fid">{{g.fname}}</a></h3>
+                                    <a :href="'shop-details.html#'+g.fid" class="shop-btn">立即购买</a>
+                                   
+                                    <img :src="g.fImage" alt="Images">
+                                     <div class="trending-item-tag">
+                                            <h3>广告</h3>
+                                     </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-md-6" v-for="t in tfruits">
+                                <div class="trending-side-item-2">
+                                    <h3>{{t.fdesc}}</h3>
+                                    <h3><a href="shop-details.html">{{t.fname}}</a></h3>
+                                    <a :href="'shop-details.html#'+t.fid" class="shop-btn">立即购买</a>
+                                    <img :src="t.fImage" alt="Images">
+                                     <div class="trending-item-tag">
+                                            <h3>优惠推荐</h3>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+                     <script type="text/javascript">
+                         var vue=new Vue({
+                    	  el:"#app2",
+                    	  data:{
+                    		  fruits:[],
+                    		  gfruits:[],
+                    		  tfruits:[]
+                    	  },
+                    	  created(){
+                    		  axios.get("fruitsP").then(res=>{
+                    			  this.fruits=res.data;
+                    		  }),
+                    		  axios.get("fruitsG").then(res=>{
+                    			  this.gfruits=res.data;
+                    		  }),
+                    		  axios.get("fruitsT").then(res=>{
+                    			  this.tfruits=res.data;
+                    		  })
+                    	  }
+                      })
+                    
+                    
+                    </script>
+                            
+                       
+                            
+                </div>
+        </div>
+        
+        <!-- Choose Area -->
+        <div class="choose-area pt-100 pb-70">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>为什么你会选择我们</h2>
+                </div>
+                <div class="row pt-45">
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="choose-card">
+                            <i class="flaticon-24-hours"></i>
+                            <h3>全天候在线支持</h3>
+                            <p>每天都有新鲜优惠的产品</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="choose-card">
+                            <i class="flaticon-leaf"></i>
+                            <h3>100%纯食品</h3>
+                            <p>无添加,无农药残留</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-sm-6 offset-lg-0 offset-sm-3">
+                        <div class="choose-card">
+                            <i class="flaticon-service"></i>
+                            <h3>送货上门</h3>
+                            <p>无论你身在何方，我们都能送货上门</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Trending Area End -->
+        
+        
+
+        <!-- Brand Area -->
+        <div class="brand-area pb-100">
+            <div class="container">
+                <div class="brand-slider owl-carousel owl-theme">
+                    <div class="brand-item">
+                        <img src="assets/images/brand-logo/brand-img1.png" alt="Images">
+                    </div>
+                    <div class="brand-item">
+                        <img src="assets/images/brand-logo/brand-img2.png" alt="Images">
+                    </div>
+                    <div class="brand-item">
+                        <img src="assets/images/brand-logo/brand-img3.png" alt="Images">
+                    </div>
+                    <div class="brand-item">
+                        <img src="assets/images/brand-logo/brand-img4.png" alt="Images">
+                    </div>
+                    <div class="brand-item">
+                        <img src="assets/images/brand-logo/brand-img5.png" alt="Images">
+                    </div>
+                    <div class="brand-item">
+                        <img src="assets/images/brand-logo/brand-img2.png" alt="Images">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Brand Area End -->
+
+        <!-- Testimonials Area -->
+        <div class="testimonials-area ptb-100">
+            <div class="container">
+                <div class="testimonials-slider owl-carousel owl-theme">
+                    <div class="testimonials-item">
+                        <img src="assets/images/testimonials/testimonials-img1.jpg" alt="Images">
+                        <p>
+                            "We are one of the best  and huge problem on the product taking from online. Most of the time we 
+                            get the eCommerce  and ordered product on this and on that time we saw that it gives the best 
+                            service for all the time." 
+                        </p>
+                        <i class='bx bxs-quote-alt-left'></i>
+                        <h3>- Elen Musk, CEO, MT Corporation</h3>
+                    </div>
+
+                    <div class="testimonials-item">
+                        <img src="assets/images/testimonials/testimonials-img2.jpg" alt="Images">
+                        <p>
+                            "We are one of the best  and huge problem on the product taking from online. Most of the time we 
+                            get the eCommerce  and ordered product on this and on that time we saw that it gives the best 
+                            service for all the time." 
+                        </p>
+                        <i class='bx bxs-quote-alt-left'></i>
+                        <h3>- Tom Shumate, Founder, MT Corporation</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Testimonials Area End -->
+
+        <!-- Offer Area End -->
+        <div class="offer-area pt-100 pb-70">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Our Daily Offer</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eget arcu luctus orci vulputate eleifend ut et odio. Proin purus mi, convallis sit amet pretium a, rhoncus aliquam purus. 
+                    </p>
+                </div>
+
+                <div class="row pt-45">
+                    <div class="col-lg-6">
+                        <div class="offer-top-item offer-bg1">
+                            <span>New Arrival</span>
+                            <h3>Buy 100% Fresh Apple</h3>
+                            <p>Get this food now</p>
+                            <a href="#" class="shop-btn">Shop Now</a>
+                            <img src="assets/images/offer-img/offer-img5.png" alt="Images">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="offer-top-item offer-bg2">
+                            <span>Discount Offer</span>
+                            <h3>Offer Start at $30 Buy!</h3>
+                            <p>Come to us immediately.</p>
+                            <a href="#" class="shop-btn">Shop It Now</a>
+                            <img src="assets/images/offer-img/offer-img6.png" alt="Images">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="offer-item">
+                            <div class="offer-img">
+                                <a href="shop-details.html">
+                                    <img src="assets/images/offer-img/offer-img1.png" alt="Product Images">
+                                </a>
+                                <div class="offer-item-tag">
+                                    <h3>-18%</h3>
+                                </div>
+                                <ul class="offer-item-action">
+                                    <li><a href="#"><i class='bx bx-repost'></i></a></li>
+                                    <li><a href="wishlist.html"><i class='bx bx-heart'></i></a></li>
+                                    <li><a href="cart.html"><i class='bx bx-cart'></i></a></li>
+                                </ul>
+                            </div>
+    
+                            <div class="content">
+                                <h3><a href="shop-details.html">Natural Fresh Orange</a></h3>
+                                <span>$10.0/Kg <del>$12.0/Kg</del></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="offer-item">
+                            <div class="offer-img">
+                                <a href="shop-details.html">
+                                    <img src="assets/images/offer-img/offer-img2.png" alt="Product Images">
+                                </a>
+                                <div class="offer-item-tag">
+                                    <h3>-10%</h3>
+                                </div>
+                                <ul class="offer-item-action">
+                                    <li><a href="#"><i class='bx bx-repost'></i></a></li>
+                                    <li><a href="wishlist.html"><i class='bx bx-heart'></i></a></li>
+                                    <li><a href="cart.html"><i class='bx bx-cart'></i></a></li>
+                                </ul>
+                            </div>
+    
+                            <div class="content">
+                                <h3><a href="shop-details.html">Fresh Pineapple</a></h3>
+                                <span>$15.0/Kg <del>$20.0/Kg</del></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="offer-item">
+                            <div class="offer-img">
+                                <a href="shop-details.html">
+                                    <img src="assets/images/offer-img/offer-img3.png" alt="Product Images">
+                                </a>
+                                <div class="offer-item-tag">
+                                    <h3>-10%</h3>
+                                </div>
+                                <ul class="offer-item-action">
+                                    <li><a href="#"><i class='bx bx-repost'></i></a></li>
+                                    <li><a href="wishlist.html"><i class='bx bx-heart'></i></a></li>
+                                    <li><a href="cart.html"><i class='bx bx-cart'></i></a></li>
+                                </ul>
+                            </div>
+    
+                            <div class="content">
+                                <h3><a href="shop-details.html">Bunch Red Grapes</a></h3>
+                                <span>$10.0/Kg <del>$15.0/Kg</del></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="offer-item">
+                            <div class="offer-img">
+                                <a href="shop-details.html">
+                                    <img src="assets/images/offer-img/offer-img4.png" alt="Product Images">
+                                </a>
+                                <div class="offer-item-tag">
+                                    <h3>-5%</h3>
+                                </div>
+                                <ul class="offer-item-action">
+                                    <li><a href="#"><i class='bx bx-repost'></i></a></li>
+                                    <li><a href="wishlist.html"><i class='bx bx-heart'></i></a></li>
+                                    <li><a href="cart.html"><i class='bx bx-cart'></i></a></li>
+                                </ul>
+                            </div>
+    
+                            <div class="content">
+                                <h3><a href="shop-details.html">Organic Cucumber</a></h3>
+                                <span>$5.0/Kg <del>$7.0/Kg</del></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Offer Area End -->
+
+        <!-- Blog Area -->
+        <section class="blog-area pb-70">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Our Latest Blogs</h2>
+                    <p class="margin-auto">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eget arcu luctus orci vulputate eleifend ut et odio. Proin purus mi, convallis sit amet pretium a, rhoncus aliquam purus. 
+                    </p>
+                </div>
+
+                <div class="row pt-45">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="blog-card">
+                            <a href="blog-details.html">
+                                <img src="assets/images/blog/blog-img1.jpg" alt="Images">
+                            </a>
+                            <div class="content">
+                                <span><i class='bx bx-time-five'></i> Nov 01, 2020</span>
+                                <h3><a href="blog-details.html">We Always Ready to Give You Best Delivery Support </a></h3>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consetetur exit sadipscing elitr, sed diam.
+                                </p>
+                                <a href="#" class="read-btn">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="blog-card">
+                            <a href="blog-details.html">
+                                <img src="assets/images/blog/blog-img2.jpg" alt="Images">
+                            </a>
+                            <div class="content">
+                                <span><i class='bx bx-time-five'></i> Nov 05, 2020</span>
+                                <h3><a href="blog-details.html">Click  and Make the Payment in the Most Easiest Way</a></h3>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consetetur exit sadipscing elitr, sed diam.
+                                </p>
+                                <a href="#" class="read-btn">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 offset-lg-0 offset-md-3">
+                        <div class="blog-card">
+                            <a href="blog-details.html">
+                                <img src="assets/images/blog/blog-img3.jpg" alt="Images">
+                            </a>
+                            <div class="content">
+                                <span><i class='bx bx-time-five'></i> Nov 07, 2020</span>
+                                <h3><a href="blog-details.html">Global Ecommerce System Marked as a History </a></h3>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consetetur exit sadipscing elitr, sed diam.
+                                </p>
+                                <a href="#" class="read-btn">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Blog Area End -->
+
+        <!-- Newsletter Area Section -->
+        <div class="newsletter-area-section pt-100 pb-70">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Keep in Touch With Newsletter</h2>
+                    <p class="margin-auto">
+                        Get 35% Discount on Subscribe
+                    </p>
+                </div>
+
+                <div class="newsletter-area pt-45">
+                    <form class="newsletter-form" data-toggle="validator" method="POST">
+                        <input type="email" class="form-control" placeholder="Enter your email" name="EMAIL" required autocomplete="off">
+                        <button class="subscribe-btn" type="submit">
+                            Subscribe
+                        </button>
+                        <div id="validator-newsletter" class="form-result"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Newsletter Area Section End -->
+
+        <!-- Footer Area -->
+        <footer class="footer-area">
+            <div class="container">
+                <div class="footer-top pt-100 pb-70">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="footer-widget">
+                                <div class="footer-logo">
+                                    <a href="index.html">
+                                        <img src="assets/images/logos/footer-logo.png" alt="Images">
+                                    </a>
+                                </div>
+                                <p>
+                                    We are one of the best & quality full in market. Let's join.
+                                </p>
+                                <ul class="footer-list-contact">
+                                    <li>
+                                        <i class='bx bx-home'></i>
+                                        <a href="#">Virgil A Stanton, Virginia, USA</a>
+                                    </li>
+                                    <li>
+                                        <i class='bx bx-phone-call' ></i>
+                                        <a href="tel:+1(123)-456-7890">+1 (123) 456 7890</a>
+                                    </li>
+                                    <li>
+                                        <i class='bx bx-envelope'></i>
+                                        <a href="mailto:hello@hilo.com">hello@hilo.com</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6">
+                            <div class="footer-widget">
+                                <h3>Services</h3>
+                                <ul class="footer-list">
+                                    <li>
+                                        <a href="wordpress-hosting.html" target="_blank">
+                                            My Account
+                                        </a>
+                                    </li> 
+                                    <li>
+                                        <a href="tracking-order.html" target="_blank">
+                                            Tracking Order 
+                                        </a>
+                                    </li> 
+                                    <li>
+                                        <a href="customer-services.html" target="_blank">
+                                            Customer Services  
+                                        </a>
+                                    </li> 
+                                    <li>
+                                        <a href="compare.html" target="_blank">
+                                            Compare    
+                                        </a>
+                                    </li> 
+                                    <li>
+                                        <a href="wishlist.html" target="_blank">
+                                            Wishlist      
+                                        </a>
+                                    </li> 
+                                    <li>
+                                        <a href="privacy-policy.html" target="_blank">
+                                            Privacy Policy      
+                                        </a>
+                                    </li> 
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6">
+                            <div class="footer-widget">
+                                <h3>Information</h3>
+                                <ul class="footer-list">
+                                    <li>
+                                        <a href="index.html" target="_blank">
+                                            Home
+                                        </a>
+                                    </li> 
+                                    <li>
+                                        <a href="about.html" target="_blank">
+                                            About Us 
+                                        </a>
+                                    </li> 
+                                    <li>
+                                        <a href="blog-details.html" target="_blank">
+                                            Blog Details  
+                                        </a>
+                                    </li> 
+                                    <li>
+                                        <a href="shop-details.html" target="_blank">
+                                            Shop Details    
+                                        </a>
+                                    </li> 
+                                    <li>
+                                        <a href="testimonials.html" target="_blank">
+                                            Testimonials      
+                                        </a>
+                                    </li> 
+                                    <li>
+                                        <a href="team.html" target="_blank">
+                                            Team      
+                                        </a>
+                                    </li> 
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6">
+                            <div class="footer-widget">
+                                <h3>Follow Us</h3>
+                                <p>We are one of the best & quality full  in market. Let's join.</p>
+                                <form class="footer-form-area">
+                                    <input type="email" class="form-control" placeholder="Email">
+                                    <button class="subscribe-btn" type="submit">
+                                        <i class='bx bx-paper-plane'></i>
+                                    </button>
+                                </form>
+
+                                <ul class="social-link">
+                                    <li>
+                                        <a href="#" target="_blank"><i class='bx bxl-facebook'></i></a>
+                                    </li> 
+                                    <li>
+                                        <a href="#" target="_blank"><i class='bx bxl-twitter'></i></a>
+                                    </li> 
+                                    <li>
+                                        <a href="#" target="_blank"><i class='bx bxl-instagram'></i></a>
+                                    </li> 
+                                    <li>
+                                        <a href="#" target="_blank"><i class='bx bxl-youtube'></i></a>
+                                    </li> 
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="copy-right-area">
+                    <div class="copy-right-text">
+                        <p>
+                            Copyright @2020 Hilo. All Rights Reserved by 
+                            <a href="https://hibootstrap.com/" target="_blank">HiBootstrap</a> 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer Area End -->
+
+
+        <!-- Jquery Min JS -->
+        <script src="assets/js/jquery-3.5.1.slim.min.js"></script>
+        <!-- Popper Min JS -->
+        <script src="assets/js/popper.min.js"></script>
+        <!-- Bootstrap Min JS -->
+        <script src="assets/js/bootstrap.min.js"></script>
+        <!-- Owl Carousel Min JS -->
+        <script src="assets/js/owl.carousel.min.js"></script>
+        <!-- Nice Select Min JS -->
+        <script src="assets/js/jquery.nice-select.min.js"></script>
+        <!-- Wow Min JS -->
+        <script src="assets/js/wow.min.js"></script>
+        <!-- Meanmenu JS -->
+        <script src="assets/js/meanmenu.js"></script>
+        <!-- Jquery Ui Min JS -->
+        <script src="assets/js/jquery-ui.min.js"></script>
+        <!-- Ajaxchimp Min JS -->
+        <script src="assets/js/jquery.ajaxchimp.min.js"></script>
+        <!-- Form Validator Min JS -->
+        <script src="assets/js/form-validator.min.js"></script>
+        <!-- Contact Form JS -->
+        <script src="assets/js/contact-form-script.js"></script>
+        <!-- Mixitup Min JS -->
+        <script src="assets/js/mixitup.min.js"></script>
+        <!-- Custom JS -->
+        <script src="assets/js/custom.js"></script>
+
+    </body>
+</html>

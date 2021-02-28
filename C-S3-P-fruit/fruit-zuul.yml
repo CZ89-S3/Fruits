@@ -1,0 +1,18 @@
+server:
+   port: 80
+
+eureka:
+   client:
+      serviceUrl:
+         defaultZone: http://127.0.0.1:8000/eureka
+         
+zuul:
+   # 设置不过滤敏感头
+   sensitiveHeaders: 
+   routes:
+      # 用户路由
+      fruit-user: /user/**
+      # 音乐路由
+      fruit-fruits: /fruits/**
+      # 门户作为默认的路由地址==>放置在所有路由配置的下面
+      fruit-index: /**
