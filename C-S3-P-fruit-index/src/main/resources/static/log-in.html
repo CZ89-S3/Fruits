@@ -259,14 +259,14 @@ Português
 <div class="col-lg-12 ">
 <div class="form-group">
 
-<input type="text" class="form-control" v-model="username" name="username" required data-error="请输入你的用户名" placeholder="用户名">
+<input type="text" class="form-control" v-model="user.username" name="username" required data-error="请输入你的用户名" placeholder="用户名">
 <div>{{errors.username}}</div>
 </div>
 </div>
 
 <div class="col-12">
 <div class="form-group">
-<input class="form-control" type="password" v-model="password" name="password" placeholder="密码">
+<input class="form-control" type="password" v-model="user.password" name="password" placeholder="密码">
 <div>{{errors.password}}</div>
 </div>
 </div>
@@ -321,8 +321,8 @@ Português
 									params.append("password",this.user.password);
 								    axios.post("login",params).then(res=>{
 								    	if(res.data.code==1){
-											alert(res.data.msg);
-											location.href="login.html"
+											//alert(res.data.msg);
+											location.href="index.html"
 										}
 										for( let e in this.errors){  
 											var na = document.getElementsByName(e);

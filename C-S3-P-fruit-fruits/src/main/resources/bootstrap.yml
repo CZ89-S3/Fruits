@@ -1,7 +1,7 @@
 # bootstrap.yml 在 application.yml 之前之前
 spring:
    application:
-      name: fruit-music
+      name: fruit-fruits
    cloud:
      config:
        uri: http://localhost:9000
