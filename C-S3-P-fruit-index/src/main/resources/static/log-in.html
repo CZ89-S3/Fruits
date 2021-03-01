@@ -260,31 +260,26 @@ Português
 <div class="form-group">
 
 <input type="text" class="form-control" v-model="username" name="username" required data-error="请输入你的用户名" placeholder="用户名">
+<div>{{errors.username}}</div>
 </div>
 </div>
 
 <div class="col-12">
 <div class="form-group">
 <input class="form-control" type="password" v-model="password" name="password" placeholder="密码">
-</div>
-</div>
-<div class="col-12">
-<div class="form-group">
-	<span class="fieldSet"> 验证码：
-		<input v-model="vcode" id="vcode" name="captcha" class="text captcha" maxlength="4" autocomplete="off">
-			<img id="captchaImage" class="captchaImage" :src="imgsrc" height="20px;" title="点击更换验证码" @click="changeImg()">
-	</span>
+<div>{{errors.password}}</div>
 </div>
 </div>
 
-<div class="col-lg-12 form-condition">
+
+<!-- <div class="col-lg-12 form-condition">
 <div class="agree-label">
 <input type="checkbox" id="chb1">
 <label for="chb1">
 记住密码 <a class="forget" href="forget-password.html">忘记密码?</a>
 </label>
 </div>
- </div>
+ </div> -->
  
 <div class="col-lg-12 ">
 
@@ -310,27 +305,38 @@ Português
 				var v1 = new Vue({
 							el:"#login",
 							data:{
+							  user:{
 								username:"",
 								password:"",
-								vcode:"",
-								imgsrc:"verifyCode.s?a="
+								},
+						      errors : {
+							    username : "",
+							    password : "",
+							    },
 							},
 							methods:{
-								changeImg(){
-									this.imgsrc += new Date();
-								},
-								login(){
+							   login(){
 									var params = new URLSearchParams();
-									params.append("username",this.username);
-									params.append("password",this.password);
-									params.append("vcode",this.vcode);
-									axios.post("login.s",params).then(res=>{
-										alert(res.data.msg);
-										if(res.data.code == 1){
-											location.href="index.html";
+									params.append("username",this.user.username);
+									params.append("password",this.user.password);
+								    axios.post("login",params).then(res=>{
+								    	if(res.data.code==1){
+											alert(res.data.msg);
+											location.href="login.html"
 										}
-									}).catch(error=>{
-										alert("系统错误，请联系管理员");
+										for( let e in this.errors){  
+											var na = document.getElementsByName(e);
+											$(na).css('boxShadow','');
+											this.errors[e] = '';
+										}
+										if(res.data.code != 1){
+											var es = res.data.data;
+											for( let e of es){  
+												var na = document.getElementsByName(e.field);
+												$(na).css("boxShadow","0px 0px 5px 3px red");	
+												this.errors[e.field] = e.defaultMessage;  
+											}
+										}
 									})
 								}
 							}
