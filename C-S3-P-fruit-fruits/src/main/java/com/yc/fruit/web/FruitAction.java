@@ -29,7 +29,7 @@ public class FruitAction {
    	public List<?> queryPopular(){
    		FruitExample fe = new FruitExample();
    		fe.createCriteria().andHotEqualTo(1);
-   		PageHelper.startPage(1, 8);
+   		PageHelper.startPage(1, 6);
    		return fm.selectByExample(fe);
    	}
     
@@ -48,7 +48,5 @@ public class FruitAction {
 		PageHelper.startPage(1, 1);
 		return fm.selectByExample(fe);
    	}
-    
-    
-	
+   
 }
